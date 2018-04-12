@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/create_character_header_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/new_character"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/create_character_scrollview"
+        android:layout_width="372dp"
+        android:layout_height="406dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_character_header_textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/create_name_label"
+                    android:layout_width="70dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Name: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_name"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/create_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/create_descriptor_label"
+                    android:layout_width="70dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Descriptor: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_name_label" />
+
+                <EditText
+                    android:id="@+id/create_descriptor"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="(Descriptor)"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/create_type_label"
+                    android:layout_width="70dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Type: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_descriptor_label" />
+
+                <EditText
+                    android:id="@+id/create_type"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="(Type)"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_descriptor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/create_focus_label"
+                    android:layout_width="70dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Focus: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_type_label" />
+
+                <EditText
+                    android:id="@+id/create_focus"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="(focus)"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_type" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/create_tier_label"
+                    android:layout_width="50dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Tier: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_focus_label"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+
+                <EditText
+                    android:id="@+id/create_tier"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+
+                <TextView
+                    android:id="@+id/create_effort_label"
+                    android:layout_width="50dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Effort: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+
+                <EditText
+                    android:id="@+id/create_effort"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+
+                <TextView
+                    android:id="@+id/create_xp_label"
+                    android:layout_width="55dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="XP: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+
+                <EditText
+                    android:id="@+id/create_xp"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_fcus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/create_might_label"
+                    android:layout_width="50dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Might: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_focus_label"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+
+                <EditText
+                    android:id="@+id/create_might"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+
+                <TextView
+                    android:id="@+id/create_speed_label"
+                    android:layout_width="50dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Speed: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+
+                <EditText
+                    android:id="@+id/create_speed"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+
+                <TextView
+                    android:id="@+id/create_intellect_label"
+                    android:layout_width="55dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:text="Intellect: "
+                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintHorizontal_bias="0.192"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+
+                <EditText
+                    android:id="@+id/create_intellect"
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/create_fcus" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/create_abilities_label"
+                android:layout_width="70dp"
+                android:layout_height="29dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:text="Abilities: "
+                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintHorizontal_bias="0.192"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/create_abilities"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:text=""
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/create_character_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="28dp"
+        android:layout_marginStart="71dp"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/create_character_save_button"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/create_character_save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/create_character_cancel_button"
+        android:layout_marginEnd="70dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+</RelativeLayout>
