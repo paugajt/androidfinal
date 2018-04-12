@@ -6,34 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/create_character_header_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/new_character"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/create_character_scrollview"
-        android:layout_width="372dp"
-        android:layout_height="406dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_character_header_textView">
+        android:layout_marginBottom="75dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/create_character_header_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/new_character"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,13 +39,14 @@
 
                 <TextView
                     android:id="@+id/create_name_label"
-                    android:layout_width="70dp"
+                    android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Name: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_name"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -78,13 +76,14 @@
 
                 <TextView
                     android:id="@+id/create_descriptor_label"
-                    android:layout_width="70dp"
+                    android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
-                    android:text="Descriptor: "
+                    android:text="Descript: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +99,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:inputType="text"
-                    android:text="(Descriptor)"
+                    android:text=""
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -114,13 +113,14 @@
 
                 <TextView
                     android:id="@+id/create_type_label"
-                    android:layout_width="70dp"
+                    android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Type: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:inputType="text"
-                    android:text="(Type)"
+                    android:text=""
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -150,13 +150,14 @@
 
                 <TextView
                     android:id="@+id/create_focus_label"
-                    android:layout_width="70dp"
+                    android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Focus: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +173,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:inputType="text"
-                    android:text="(focus)"
+                    android:text=""
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -193,6 +194,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Tier: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_focus_label"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -222,6 +224,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Effort: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -244,13 +247,14 @@
 
                 <TextView
                     android:id="@+id/create_xp_label"
-                    android:layout_width="55dp"
+                    android:layout_width="60dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="XP: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -286,6 +290,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Might: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_focus_label"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -315,6 +320,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:text="Speed: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -337,13 +343,14 @@
 
                 <TextView
                     android:id="@+id/create_intellect_label"
-                    android:layout_width="55dp"
+                    android:layout_width="60dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
-                    android:text="Intellect: "
+                    android:text="Intel: "
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/create_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
@@ -375,6 +382,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="start"
                 android:text="Abilities: "
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/create_name"
                 app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
@@ -388,11 +396,134 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:ems="10"
-                android:gravity="center"
+                android:gravity="top|left"
+                android:text=""
+                android:textSize="14sp"
+                android:background="@drawable/text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_attacks_label"
+                android:layout_width="70dp"
+                android:layout_height="29dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:text="Attacks: "
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintHorizontal_bias="0.192"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/create_attacks"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:gravity="top|left"
                 android:inputType="textMultiLine"
                 android:text=""
-                android:textAlignment="center"
                 android:textSize="14sp"
+                android:background="@drawable/text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_cyphers_label"
+                android:layout_width="70dp"
+                android:layout_height="29dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:text="Cyphers: "
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintHorizontal_bias="0.192"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/create_cyphers"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:text=""
+                android:textSize="14sp"
+                android:gravity="top|left"
+                android:background="@drawable/text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_equipment_label"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:text="Equipment: "
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintHorizontal_bias="0.192"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/create_equipment"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:text=""
+                android:textSize="14sp"
+                android:background="@drawable/text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_notes_label"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:text="Notes: "
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintHorizontal_bias="0.192"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/create_notes"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:text=""
+                android:textSize="14sp"
+                android:background="@drawable/text_border"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
