@@ -372,7 +372,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Equipments"
+        android:text="Equipment"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
 
@@ -385,6 +385,27 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/view_notes_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Notes:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/view_notes"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_border"
+            android:inputType="textMultiLine"
+            android:gravity="top|left"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
