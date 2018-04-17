@@ -539,6 +539,7 @@
         android:layout_marginBottom="28dp"
         android:layout_marginStart="71dp"
         android:text="Cancel"
+        android:onClick="cancelNewCharacter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/create_character_save_button"
         app:layout_constraintHorizontal_bias="0.349"
@@ -553,6 +554,7 @@
         android:layout_alignTop="@+id/create_character_cancel_button"
         android:layout_marginEnd="70dp"
         android:text="Save"
+        android:onClick="saveNewCharacter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
