@@ -418,6 +418,7 @@
         android:layout_alignTop="@+id/view_character_edit_button"
         android:layout_marginEnd="70dp"
         android:text="New Round"
+        android:onClick="newRoundButtonIntent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
     <Button
@@ -429,6 +430,7 @@
         android:layout_marginBottom="28dp"
         android:layout_marginStart="71dp"
         android:text="Edit"
+        android:onClick="editCharacterInfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/new_round_button"
         app:layout_constraintHorizontal_bias="0.349"

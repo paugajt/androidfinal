@@ -9,4 +9,5 @@ class NewCharacter() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_character)
     }
+
 }
