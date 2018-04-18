@@ -1,5 +1,6 @@
 package com.justinpauga.cyphersystemscharactertracker
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.new_character.*
 
 class NewCharacter() : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,33 +22,31 @@ class NewCharacter() : AppCompatActivity() {
     }
 
     fun saveNewCharacter(view: View) {
-        if (isCharacterSaved(create_name.text.toString())) {
-            val cancelNewIntent = Intent(this, MainActivity::class.java)
-            startActivity(cancelNewIntent)
-        }
-        else {
-            val toon = Character::class.java.newInstance()
-            toon.setName(create_name.text.toString())
-            toon.setDescriptor(create_descriptor.text.toString())
-            toon.setType(create_type.text.toString())
-            toon.setFocus(create_focus.text.toString())
-            toon.setTier((create_tier.text.toString().toInt()))
-            toon.setEffort(create_effort.text.toString().toInt())
-            toon.setXp(create_xp.text.toString().toInt())
-            toon.setMight(create_might.text.toString().toInt())
-            toon.setSpeed(create_speed.text.toString().toInt())
-            toon.setIntelligence(create_intellect.text.toString().toInt())
-            toon.setAbilities(create_abilities.text.toString())
-            toon.setAttacks(create_attacks.text.toString())
-            toon.setCyphers(create_cyphers.text.toString())
-            toon.setEquipment(create_equipment.text.toString())
-            toon.setNotes(create_notes.text.toString())
 
+            var character = Array(15, {""})
+            character[0] = create_name.text.toString()
+            character[1] = create_descriptor.text.toString()
+            character[2] = create_type.text.toString()
+            character[3] = create_focus.text.toString()
+            character[4] = create_tier.text.toString()//.toInt()
+            character[5] = create_effort.text.toString()//.toInt()
+            character[6] = create_xp.text.toString()//.toInt()
+            character[7] = create_might.text.toString()//.toInt()
+            character[8] = create_speed.text.toString()//.toInt()
+            character[9] = create_intellect.text.toString()//.toInt()
+            character[10] = create_abilities.text.toString()
+            character[11] = create_attacks.text.toString()
+            character[12] = create_cyphers.text.toString()
+            character[13] = create_equipment.text.toString()
+            character[14] = create_notes.text.toString()
 
-        }
+            sendCharacter(view, character)
     }
 
-    private fun isCharacterSaved(name: String): Boolean {
-        return false
+    fun sendCharacter(view: View, character: Array<String>) {
+        var intent = Intent()
+        intent.putExtra("Character", character)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 }
