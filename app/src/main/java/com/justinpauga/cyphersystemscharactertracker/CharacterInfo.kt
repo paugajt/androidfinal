@@ -20,4 +20,7 @@ class CharacterInfo() : AppCompatActivity() {
         val editButton = Intent(this, NewCharacter::class.java)
         startActivity(editButton)
     }
+
+    fun getCharacterInfo(view: View){
+    }
 }

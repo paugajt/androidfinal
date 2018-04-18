@@ -41,8 +41,6 @@ class NewCharacter() : AppCompatActivity() {
             toon.setCyphers(create_cyphers.text.toString())
             toon.setEquipment(create_equipment.text.toString())
             toon.setNotes(create_notes.text.toString())
-
-
         }
     }
 
