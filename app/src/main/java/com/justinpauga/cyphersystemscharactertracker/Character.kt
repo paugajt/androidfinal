@@ -1,7 +1,9 @@
 package com.justinpauga.cyphersystemscharactertracker
 
+import java.io.Serializable
 
-class Character {
+
+class Character: Serializable {
 
     private var name: String = ""
     private var descriptor: String = ""

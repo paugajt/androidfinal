@@ -13,18 +13,30 @@ import android.widget.TextView
 import android.widget.Toast
 import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
+import android.R.attr.button
+
+
 
 
 class MainActivity : AppCompatActivity() {
 
-    var info = Array<String>(15, {""})
+    var info = Array(15, {""})
     private val fileName = "Characters"
-    private var charList: ArrayList<Character> = ArrayList<Character>()
-    //private var idCounter: Int = 1
+    private var charList: ArrayList<Character> = ArrayList()
+    val view = TextView(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        populateCharacterView()
+    }
+
+    fun populateCharacterView() {
 
         if (charList.isEmpty()) {
             val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
@@ -35,29 +47,36 @@ class MainActivity : AppCompatActivity() {
             emptyCharList.text = "No Characters Yet"
             //emptyCharList.id = 1
             emptyCharList.setBackgroundResource(R.drawable.text_border)
+            emptyCharList.height = 200
             emptyCharList.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT)
 
             (linearLayout as LinearLayout).addView(emptyCharList)
         } else {
+
             for (character in charList!!) {
                 val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
                 val view = TextView(this)
                 view.text = "${character.getName()} is a ${character.getDescriptor()} ${character.getType()} who ${character.getFocus()}"
                 //view.id = idCounter
                 view.setBackgroundResource(R.drawable.text_border)
+                view.height = 200
                 view.layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.FILL_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT)
                 (linearLayout as LinearLayout).addView(view)
-                //idCounter++
+                view.setOnClickListener({
+                    startActivity(Intent(this, CharacterInfo::class.java)) })
+                //view.callOnClick(openCharacterInfo(character))
             }
         }
-
-
     }
 
+    fun openCharacterInfo(character: Character) {
+        val launchCharacterInfo = Intent(this, CharacterInfo::class.java)
+        startActivity(launchCharacterInfo)
+    }
     fun openNewCharacter(view: View) {
         val launchNewCharacter = Intent(this, NewCharacter::class.java)
         startActivityForResult(launchNewCharacter, 1)
