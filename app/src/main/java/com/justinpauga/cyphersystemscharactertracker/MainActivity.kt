@@ -22,8 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     var info = Array(15, {""})
     private val fileName = "Characters"
-    private var charList: ArrayList<Character> = ArrayList()
-    val view = TextView(this)
+    private val charList: ArrayList<Character> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +36,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun populateCharacterView() {
+        val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
+        (linearLayout as LinearLayout).removeAllViews()
 
         if (charList.isEmpty()) {
-            val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
             //LinearLayout layout = (LinearLayout) findViewById(R.id.info);
-
-
             val emptyCharList = TextView(this)
             emptyCharList.text = "No Characters Yet"
-            //emptyCharList.id = 1
             emptyCharList.setBackgroundResource(R.drawable.text_border)
             emptyCharList.height = 200
             emptyCharList.layoutParams = ViewGroup.LayoutParams(
@@ -54,9 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             (linearLayout as LinearLayout).addView(emptyCharList)
         } else {
-
             for (character in charList!!) {
-                val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
                 val view = TextView(this)
                 view.text = "${character.getName()} is a ${character.getDescriptor()} ${character.getType()} who ${character.getFocus()}"
                 //view.id = idCounter
@@ -111,9 +106,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK)
+        if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
             info = data!!.getStringArrayExtra("Character")
             createCharacter(info)
+        }
 
     }
 
@@ -133,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         character.setAttacks(info[11])
         character.setCyphers(info[12])
         character.setEquipment(info[13])
-        character.setName(info[14])
+        character.setNotes(info[14])
 
         saveCharacter(character)
     }

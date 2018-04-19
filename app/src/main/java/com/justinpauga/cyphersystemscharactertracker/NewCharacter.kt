@@ -17,8 +17,9 @@ class NewCharacter() : AppCompatActivity() {
     }
 
     fun cancelNewCharacter(view: View) {
-        val cancelNewIntent = Intent(this, MainActivity::class.java)
-        startActivity(cancelNewIntent)
+        val cancelNewIntent = Intent()
+        setResult(Activity.RESULT_CANCELED)
+        finish()
     }
 
     fun saveNewCharacter(view: View) {
