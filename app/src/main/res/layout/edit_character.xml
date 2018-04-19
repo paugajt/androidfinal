@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/create_character_scrollview"
+        android:id="@+id/edit_character_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/create_character_header_textView"
+                android:id="@+id/edit_character_header_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -38,7 +38,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/create_name_label"
+                    android:id="@+id/edit_name_label"
                     android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -47,13 +47,13 @@
                     android:gravity="start"
                     android:text="Name: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_name"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_name"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/create_name"
+                    android:id="@+id/edit_name"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="80dp"
@@ -75,7 +75,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/create_descriptor_label"
+                    android:id="@+id/edit_descriptor_label"
                     android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -84,13 +84,13 @@
                     android:gravity="start"
                     android:text="Descript: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_descriptor"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_name_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_name_label" />
 
                 <EditText
-                    android:id="@+id/create_descriptor"
+                    android:id="@+id/edit_descriptor"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="80dp"
@@ -103,7 +103,7 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_name" />
             </LinearLayout>
 
             <LinearLayout
@@ -112,7 +112,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/create_type_label"
+                    android:id="@+id/edit_type_label"
                     android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -121,13 +121,13 @@
                     android:gravity="start"
                     android:text="Type: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_descriptor"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_descriptor_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_descriptor_label" />
 
                 <EditText
-                    android:id="@+id/create_type"
+                    android:id="@+id/edit_type"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="80dp"
@@ -140,7 +140,7 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_descriptor" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_descriptor" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,7 +149,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/create_focus_label"
+                    android:id="@+id/edit_focus_label"
                     android:layout_width="75dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -158,13 +158,13 @@
                     android:gravity="start"
                     android:text="Focus: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_descriptor"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_descriptor"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_type_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_type_label" />
 
                 <EditText
-                    android:id="@+id/create_focus"
+                    android:id="@+id/edit_focus"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="80dp"
@@ -177,7 +177,7 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_type" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_type" />
             </LinearLayout>
 
             <LinearLayout
@@ -186,7 +186,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/create_tier_label"
+                    android:id="@+id/edit_tier_label"
                     android:layout_width="50dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -195,13 +195,13 @@
                     android:gravity="start"
                     android:text="Tier: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_focus_label"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_focus_label"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus_label" />
 
                 <EditText
-                    android:id="@+id/create_tier"
+                    android:id="@+id/edit_tier"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -213,10 +213,10 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus" />
 
                 <TextView
-                    android:id="@+id/create_effort_label"
+                    android:id="@+id/edit_effort_label"
                     android:layout_width="50dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -225,13 +225,13 @@
                     android:gravity="start"
                     android:text="Effort: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus_label" />
 
                 <EditText
-                    android:id="@+id/create_effort"
+                    android:id="@+id/edit_effort"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -243,10 +243,10 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus" />
 
                 <TextView
-                    android:id="@+id/create_xp_label"
+                    android:id="@+id/edit_xp_label"
                     android:layout_width="60dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -255,13 +255,13 @@
                     android:gravity="start"
                     android:text="XP: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus_label" />
 
                 <EditText
-                    android:id="@+id/create_xp"
+                    android:id="@+id/edit_xp"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -273,7 +273,7 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_fcus" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_fcus" />
             </LinearLayout>
 
             <LinearLayout
@@ -282,7 +282,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/create_might_label"
+                    android:id="@+id/edit_might_label"
                     android:layout_width="50dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -291,13 +291,13 @@
                     android:gravity="start"
                     android:text="Might: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_focus_label"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_focus_label"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus_label" />
 
                 <EditText
-                    android:id="@+id/create_might"
+                    android:id="@+id/edit_might"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -309,10 +309,10 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus" />
 
                 <TextView
-                    android:id="@+id/create_speed_label"
+                    android:id="@+id/edit_speed_label"
                     android:layout_width="50dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -321,13 +321,13 @@
                     android:gravity="start"
                     android:text="Speed: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus_label" />
 
                 <EditText
-                    android:id="@+id/create_speed"
+                    android:id="@+id/edit_speed"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -339,10 +339,10 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus" />
 
                 <TextView
-                    android:id="@+id/create_intellect_label"
+                    android:id="@+id/edit_intellect_label"
                     android:layout_width="60dp"
                     android:layout_height="29dp"
                     android:layout_marginEnd="8dp"
@@ -351,13 +351,13 @@
                     android:gravity="start"
                     android:text="Intel: "
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/create_tier"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_tier"
                     app:layout_constraintHorizontal_bias="0.192"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_focus_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_focus_label" />
 
                 <EditText
-                    android:id="@+id/create_intellect"
+                    android:id="@+id/edit_intellect"
                     android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -369,12 +369,12 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/create_fcus" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_fcus" />
             </LinearLayout>
 
 
             <TextView
-                android:id="@+id/create_abilities_label"
+                android:id="@+id/edit_abilities_label"
                 android:layout_width="70dp"
                 android:layout_height="29dp"
                 android:layout_marginEnd="8dp"
@@ -383,13 +383,13 @@
                 android:gravity="start"
                 android:text="Abilities: "
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintEnd_toStartOf="@+id/edit_name"
                 app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/create_abilities"
+                android:id="@+id/edit_abilities"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
@@ -404,7 +404,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/create_attacks_label"
+                android:id="@+id/edit_attacks_label"
                 android:layout_width="70dp"
                 android:layout_height="29dp"
                 android:layout_marginEnd="8dp"
@@ -413,13 +413,13 @@
                 android:gravity="start"
                 android:text="Attacks: "
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintEnd_toStartOf="@+id/edit_name"
                 app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/create_attacks"
+                android:id="@+id/edit_attacks"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
@@ -435,7 +435,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/create_cyphers_label"
+                android:id="@+id/edit_cyphers_label"
                 android:layout_width="70dp"
                 android:layout_height="29dp"
                 android:layout_marginEnd="8dp"
@@ -444,13 +444,13 @@
                 android:gravity="start"
                 android:text="Cyphers: "
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintEnd_toStartOf="@+id/edit_name"
                 app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/create_cyphers"
+                android:id="@+id/edit_cyphers"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
@@ -466,7 +466,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/create_equipment_label"
+                android:id="@+id/edit_equipment_label"
                 android:layout_width="wrap_content"
                 android:layout_height="29dp"
                 android:layout_marginEnd="8dp"
@@ -475,13 +475,13 @@
                 android:gravity="start"
                 android:text="Equipment: "
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintEnd_toStartOf="@+id/edit_name"
                 app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/create_equipment"
+                android:id="@+id/edit_equipment"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
@@ -497,7 +497,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/create_notes_label"
+                android:id="@+id/edit_notes_label"
                 android:layout_width="wrap_content"
                 android:layout_height="29dp"
                 android:layout_marginEnd="8dp"
@@ -506,13 +506,13 @@
                 android:gravity="start"
                 android:text="Notes: "
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/create_name"
+                app:layout_constraintEnd_toStartOf="@+id/edit_name"
                 app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/create_notes"
+                android:id="@+id/edit_notes"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
@@ -531,7 +531,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/create_character_cancel_button"
+        android:id="@+id/edit_character_cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -541,17 +541,17 @@
         android:text="Cancel"
         android:onClick="cancelNewCharacter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/create_character_save_button"
+        app:layout_constraintEnd_toStartOf="@+id/edit_character_save_button"
         app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/create_character_save_button"
+        android:id="@+id/edit_character_save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/create_character_cancel_button"
+        android:layout_alignTop="@+id/edit_character_cancel_button"
         android:layout_marginEnd="70dp"
         android:text="Save"
         android:onClick="saveNewCharacter"
