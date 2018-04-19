@@ -61,12 +61,18 @@ class MainActivity : AppCompatActivity() {
                         ViewGroup.LayoutParams.WRAP_CONTENT)
                 (linearLayout as LinearLayout).addView(view)
                 view.setOnClickListener({
-                    startActivity(Intent(this, CharacterInfo::class.java)) })
-                view_name.text
+                    sendCharacter(character) })
+                //view.callOnClick(openCharacterInfo(character))
+
             }
         }
     }
 
+    fun sendCharacter(character: Character) {
+        val intent = Intent()
+        intent.putExtra("character", character)
+        startActivity(intent)
+    }
     fun openCharacterInfo(character: Character) {
         val launchCharacterInfo = Intent(this, CharacterInfo::class.java)
         startActivity(launchCharacterInfo)
