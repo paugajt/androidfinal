@@ -20,5 +20,4 @@
         <activity android:name=".CharacterInfo" />
         <activity android:name=".NewCharacter" />
     </application>
-
 </manifest>
