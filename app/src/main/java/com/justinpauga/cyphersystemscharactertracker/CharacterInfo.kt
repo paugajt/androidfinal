@@ -13,6 +13,10 @@ class CharacterInfo() : AppCompatActivity() {
         setContentView(R.layout.character_info)
     }
 
+    override fun onResume(){
+        super.onResume()
+        handleIntent()
+    }
     fun newRoundButtonIntent (view: View){
         val newRoundButton = Intent(this, NewRound::class.java)
         startActivity(newRoundButton)
@@ -21,9 +25,14 @@ class CharacterInfo() : AppCompatActivity() {
         val editButton = Intent(this, NewCharacter::class.java)
         startActivity(editButton)
     }
+    fun handleIntent(){
+        val info = intent.extras
+        if (info != null){
+            val char = info!!.getSerializable("character")
+            view_name.text = char.getName()
 
-    fun getCharacterInfo(view: View){
-        val getChar = Character::class.java.newInstance()
-        getChar.getName()
+        }
     }
+
+
 }
