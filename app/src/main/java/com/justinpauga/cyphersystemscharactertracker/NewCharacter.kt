@@ -24,27 +24,27 @@ class NewCharacter() : AppCompatActivity() {
 
     fun saveNewCharacter(view: View) {
 
-            var character = Array(15, {""})
-            character[0] = create_name.text.toString()
-            character[1] = create_descriptor.text.toString()
-            character[2] = create_type.text.toString()
-            character[3] = create_focus.text.toString()
-            character[4] = create_tier.text.toString()//.toInt()
-            character[5] = create_effort.text.toString()//.toInt()
-            character[6] = create_xp.text.toString()//.toInt()
-            character[7] = create_might.text.toString()//.toInt()
-            character[8] = create_speed.text.toString()//.toInt()
-            character[9] = create_intellect.text.toString()//.toInt()
-            character[10] = create_abilities.text.toString()
-            character[11] = create_attacks.text.toString()
-            character[12] = create_cyphers.text.toString()
-            character[13] = create_equipment.text.toString()
-            character[14] = create_notes.text.toString()
+            var character = Character::class.java.newInstance()
+            character.setName(create_name.text.toString())
+            character.setDescriptor(create_descriptor.text.toString())
+            character.setType(create_type.text.toString())
+            character.setFocus(create_focus.text.toString())
+            character.setTier(create_tier.text.toString().toInt())
+            character.setEffort(create_effort.text.toString().toInt())
+            character.setXp(create_xp.text.toString().toInt())
+            character.setMight(create_might.text.toString().toInt())
+            character.setSpeed(create_speed.text.toString().toInt())
+            character.setIntelligence(create_intellect.text.toString().toInt())
+            character.setAbilities(create_abilities.text.toString())
+            character.setAttacks(create_attacks.text.toString())
+            character.setCyphers(create_cyphers.text.toString())
+            character.setEquipment(create_equipment.text.toString())
+            character.setNotes(create_notes.text.toString())
 
             sendCharacter(view, character)
     }
 
-    fun sendCharacter(view: View, character: Array<String>) {
+    fun sendCharacter(view: View, character: Character) {
         var intent = Intent()
         intent.putExtra("Character", character)
         setResult(Activity.RESULT_OK, intent)
