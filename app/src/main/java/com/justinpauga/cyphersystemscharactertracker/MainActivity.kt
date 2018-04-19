@@ -14,8 +14,7 @@ import android.widget.Toast
 import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
 import android.R.attr.button
-
-
+import kotlinx.android.synthetic.main.character_info.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -68,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 (linearLayout as LinearLayout).addView(view)
                 view.setOnClickListener({
                     startActivity(Intent(this, CharacterInfo::class.java)) })
-                //view.callOnClick(openCharacterInfo(character))
+                view_name.text
             }
         }
     }

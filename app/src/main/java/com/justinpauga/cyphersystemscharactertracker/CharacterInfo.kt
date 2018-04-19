@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import kotlinx.android.synthetic.main.character_info.*
 
 class CharacterInfo() : AppCompatActivity() {
 
@@ -22,5 +23,7 @@ class CharacterInfo() : AppCompatActivity() {
     }
 
     fun getCharacterInfo(view: View){
+        val getChar = Character::class.java.newInstance()
+        getChar.getName()
     }
 }
