@@ -28,7 +28,7 @@ class CharacterInfo() : AppCompatActivity() {
     fun handleIntent(){
         val info = intent.extras
         if (info != null){
-            val char = info!!.getSerializable("character")
+            val char = info.getSerializable("character") as Character
             view_name.text = char.getName()
 
         }
