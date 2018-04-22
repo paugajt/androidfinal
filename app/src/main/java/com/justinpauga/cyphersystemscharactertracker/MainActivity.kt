@@ -2,32 +2,30 @@ package com.justinpauga.cyphersystemscharactertracker
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.view.ViewGroup.LayoutParams.FILL_PARENT
 import android.widget.TextView
 import android.widget.Toast
-import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
-import java.io.File
-import android.R.attr.button
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.Gravity
-import kotlinx.android.synthetic.main.character_info.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 
 class MainActivity : AppCompatActivity() {
 
     var info = Character::class.java.newInstance()
     private val fileName = "Characters"
-    private val charList: ArrayList<Character> = ArrayList()
+    private var charList: ArrayList<Character> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        loadDataFromSharedPreferences()
     }
 
     override fun onResume() {
@@ -35,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         populateCharacterView()
     }
 
-    fun populateCharacterView() {
+    private fun populateCharacterView() {
         val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
         (linearLayout as LinearLayout).removeAllViews()
 
@@ -73,13 +71,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun sendCharacter(character: Character) {
+    private fun sendCharacter(character: Character) {
         val intent = Intent(this,CharacterInfo::class.java)
         intent.putExtra("character", character)
         startActivity(intent)
     }
 
-    fun openNewCharacter(view: View) {
+    private fun openNewCharacter(view: View) {
         val launchNewCharacter = Intent(this, NewCharacter::class.java)
         startActivityForResult(launchNewCharacter, 1)
     }
@@ -93,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun charNameExists(name: String): Boolean {
+    private fun charNameExists(name: String): Boolean {
         for (character in charList) {
             if (character.getName().equals(name)) {
                 return true
@@ -115,46 +113,36 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
             info = data!!.getSerializableExtra("Character") as Character
-//            val info = intent.extras
-//            val char = info.getSerializable("Character") as Character
             saveCharacter(info)
-            //createCharacter(info)
         }
 
     }
 
-//    fun createCharacter (info: Array<String>) {
-//        val character = Character::class.java.newInstance()
-//        character.setName(info[0])
-//        character.setDescriptor(info[1])
-//        character.setType(info[2])
-//        character.setFocus(info[3])
-//        character.setTier(info[4].toInt())
-//        character.setEffort(info[5].toInt())
-//        character.setXp(info[6].toInt())
-//        character.setMight(info[7].toInt())
-//        character.setSpeed(info[8].toInt())
-//        character.setIntelligence(info[9].toInt())
-//        character.setAbilities(info[10])
-//        character.setAttacks(info[11])
-//        character.setCyphers(info[12])
-//        character.setEquipment(info[13])
-//        character.setNotes(info[14])
-//
-//        saveCharacter(character)
-//    }
-
-    fun saveCharacter(character: Character) {
+    private fun saveCharacter(character: Character) {
         charList.add(character)
+        saveDataToSharedPreferences()
     }
-//    fun createFile() {
-//        val file = File(filesDir, "Colors")
-//        if (file.exists()) {
-//
-//        }
-//        else {
-//
-//        }
-//    }
 
+    private fun saveDataToSharedPreferences() {
+        var sharedPreferences: SharedPreferences = getSharedPreferences("Character", Context.MODE_PRIVATE)
+        var editor: SharedPreferences.Editor = sharedPreferences.edit()
+        var gson: Gson = Gson()
+        var json: String = gson.toJson(charList)
+        editor.putString("Char List", json)
+        editor.apply()
+    }
+
+    private fun loadDataFromSharedPreferences() {
+        var sharedPreferences: SharedPreferences = getSharedPreferences("Character", Context.MODE_PRIVATE)
+        var gson: Gson = Gson()
+        var json: String? = sharedPreferences.getString("Char List", null)
+        val type = object : TypeToken<ArrayList<Character>>() {
+
+        }.type
+        var test: ArrayList<Character>? = gson.fromJson(json, type)
+
+        if(test != null) {
+            charList = test
+        }
+    }
 }
