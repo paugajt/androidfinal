@@ -35,56 +35,85 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
 
-        <TextView
-        android:id="@+id/view_name"
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textAlignment="center" />
+            <TextView
+                android:id="@+id/view_name"
+                android:layout_width="223dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="10dp"
+                android:ems="10"
+                android:textStyle="bold"
+                android:inputType="text"
+                android:layout_marginTop="8dp"
+                android:textSize="20dp"
+                android:textAlignment="center" />
         </LinearLayout>
 
 
         <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-        android:id="@+id/view_isa_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:text="Is a"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/view_isa_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:text="Is a"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
-        <TextView
-        android:id="@+id/view_descriptor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:ems="7"
-        android:inputType="text" />
+            <TextView
+                android:id="@+id/view_descriptor"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginStart="10dp"
+                android:ems="7"
+                android:layout_marginTop="8dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:inputType="text" />
 
-        <TextView
-        android:id="@+id/view_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:ems="7"
-        android:inputType="text" />
+            <TextView
+                android:id="@+id/view_type"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:ems="7"
+                android:textStyle="bold"
+                android:inputType="text" />
         </LinearLayout>
 
-        <TextView
-        android:id="@+id/view_focus"
-        android:layout_width="279dp"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:inputType="text" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/view_who_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:text="Who"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/view_focus"
+                    android:layout_width="250dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"
+                    android:ems="15"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:inputType="text" />
 
+            </LinearLayout>
         <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -242,11 +271,11 @@
         android:textStyle="bold" />
 
         <TextView
-        android:id="@+id/view_total"
+        android:id="@+id/view_remain"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
         android:text="Remain"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -297,11 +326,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
         <TextView
-        android:id="@+id/view_remain"
+        android:id="@+id/view_total"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
         android:text="Total"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -395,7 +424,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/view_notes"
             android:layout_width="300dp"
             android:layout_height="70dp"

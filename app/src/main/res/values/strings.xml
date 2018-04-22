@@ -4,4 +4,6 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="name">Name:</string>
+    <string name="spinner_title">Damage Type Taken</string>
+    <string name="damage_spinner">Amount Taken</string>
 </resources>
