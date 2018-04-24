@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
         populateCharacterView()
     }
 
+    override fun onPause() {
+        super.onPause()
+        saveToFile()
+    }
+
     fun populateCharacterView() {
         val linearLayout = findViewById<View>(R.id.add_character_linear_layout)
         (linearLayout as LinearLayout).removeAllViews()
@@ -67,8 +72,6 @@ class MainActivity : AppCompatActivity() {
                 (linearLayout as LinearLayout).addView(view)
                 view.setOnClickListener({
                     sendCharacter(character) })
-                //view.callOnClick(openCharacterInfo(character))
-
             }
         }
     }
@@ -115,46 +118,28 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
             info = data!!.getSerializableExtra("Character") as Character
-//            val info = intent.extras
-//            val char = info.getSerializable("Character") as Character
             saveCharacter(info)
-            //createCharacter(info)
         }
 
     }
 
-//    fun createCharacter (info: Array<String>) {
-//        val character = Character::class.java.newInstance()
-//        character.setName(info[0])
-//        character.setDescriptor(info[1])
-//        character.setType(info[2])
-//        character.setFocus(info[3])
-//        character.setTier(info[4].toInt())
-//        character.setEffort(info[5].toInt())
-//        character.setXp(info[6].toInt())
-//        character.setMight(info[7].toInt())
-//        character.setSpeed(info[8].toInt())
-//        character.setIntelligence(info[9].toInt())
-//        character.setAbilities(info[10])
-//        character.setAttacks(info[11])
-//        character.setCyphers(info[12])
-//        character.setEquipment(info[13])
-//        character.setNotes(info[14])
-//
-//        saveCharacter(character)
-//    }
-
     fun saveCharacter(character: Character) {
         charList.add(character)
     }
-//    fun createFile() {
-//        val file = File(filesDir, "Colors")
-//        if (file.exists()) {
-//
-//        }
-//        else {
-//
-//        }
-//    }
+
+    fun saveToFile() {
+        val file = File(filesDir, fileName)
+        if (file.exists()) {
+            for(character in charList) {
+
+                file.appendText("\n${character.getName()},${character.getType()}," +
+                        "${character.getFocus()},${character.getTier()},${character.getEffort()}," +
+                        "${character.getXp()}, ${character.getMight()}, ${character.getSpeed()}," +
+                        "${character.getIntelligence()},${character.getAbilities()}," +
+                        "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
+                        "${character.getNotes()}")
+            }
+        }
+    }
 
 }
