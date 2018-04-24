@@ -16,18 +16,20 @@ import java.io.File
 import android.R.attr.button
 import android.view.Gravity
 import kotlinx.android.synthetic.main.character_info.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
     var info = Character::class.java.newInstance()
-    private val fileName = "Characters"
-    private val charList: ArrayList<Character> = ArrayList()
+    private var charList: ArrayList<Character> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        charList = getCharList()
     }
 
     override fun onResume() {
@@ -35,9 +37,42 @@ class MainActivity : AppCompatActivity() {
         populateCharacterView()
     }
 
-    override fun onPause() {
-        super.onPause()
-        saveToFile()
+
+    fun getCharList(): ArrayList<Character> {
+        val files = applicationContext.fileList()
+        //val charInfo: Array<String> = Array<String>(15, {""})
+        val charList: ArrayList<Character> = ArrayList()
+        var charInfo: List<String>
+        for(file in files) {
+            val thisFile = File(filesDir,file)
+            var sc = Scanner(thisFile)
+            if(sc.hasNext()) {
+                var line = sc.nextLine()
+                val char: Character = Character::class.java.newInstance()
+                charInfo = line.split(",")
+                if(charInfo.size == 15) {
+                    char.setName(charInfo[0])
+                    char.setDescriptor(charInfo[1])
+                    char.setType(charInfo[2])
+                    char.setFocus(charInfo[3])
+                    char.setTier(charInfo[4].trim().toInt())
+                    char.setEffort(charInfo[5].trim().toInt())
+                    char.setXp(charInfo[6].trim().toInt())
+                    char.setMight(charInfo[7].trim().toInt())
+                    char.setSpeed(charInfo[8].trim().toInt())
+                    char.setIntelligence(charInfo[9].trim().toInt())
+                    char.setAbilities(charInfo[10])
+                    char.setAttacks(charInfo[11])
+                    char.setCyphers(charInfo[12])
+                    char.setEquipment(charInfo[13])
+                    char.setNotes(charInfo[14])
+
+                    charList.add(char)
+            }
+            }
+        }
+        return charList
+
     }
 
     fun populateCharacterView() {
@@ -125,21 +160,42 @@ class MainActivity : AppCompatActivity() {
 
     fun saveCharacter(character: Character) {
         charList.add(character)
+        saveToFile(character)
     }
 
-    fun saveToFile() {
-        val file = File(filesDir, fileName)
-        if (file.exists()) {
-            for(character in charList) {
+    fun saveToFile(character:Character) {
 
-                file.appendText("\n${character.getName()},${character.getType()}," +
+            val file = File(filesDir, character.getName())
+            if (!file.exists()) {
+                val out = file.printWriter()
+                out.print("${character.getName()},${character.getDescriptor()},${character.getType()}," +
                         "${character.getFocus()},${character.getTier()},${character.getEffort()}," +
                         "${character.getXp()}, ${character.getMight()}, ${character.getSpeed()}," +
                         "${character.getIntelligence()},${character.getAbilities()}," +
                         "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
                         "${character.getNotes()}")
+                out.close()
+            } else {
+                val toast = Toast.makeText(this, "Character ${character.getName()} already exists", Toast.LENGTH_LONG)
+                toast.show()
             }
-        }
     }
+//        val file = File(filesDir, fileName)
+//        if (file.exists()) {
+//            for(character in charList) {
+//                file.appendText("\n${character.getName()},${character.getType()}," +
+//                        "${character.getFocus()},${character.getTier()},${character.getEffort()}," +
+//                        "${character.getXp()}, ${character.getMight()}, ${character.getSpeed()}," +
+//                        "${character.getIntelligence()},${character.getAbilities()}," +
+//                        "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
+//                        "${character.getNotes()}")
+//            }
+//        }
+//        else {
+//            val out = file.printWriter()
+//            out.println()
+//            out.close()
+//        }
+//    }
 
 }
