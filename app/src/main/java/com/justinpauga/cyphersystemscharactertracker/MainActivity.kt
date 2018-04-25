@@ -180,22 +180,6 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
             }
     }
-//        val file = File(filesDir, fileName)
-//        if (file.exists()) {
-//            for(character in charList) {
-//                file.appendText("\n${character.getName()},${character.getType()}," +
-//                        "${character.getFocus()},${character.getTier()},${character.getEffort()}," +
-//                        "${character.getXp()}, ${character.getMight()}, ${character.getSpeed()}," +
-//                        "${character.getIntelligence()},${character.getAbilities()}," +
-//                        "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
-//                        "${character.getNotes()}")
-//            }
-//        }
-//        else {
-//            val out = file.printWriter()
-//            out.println()
-//            out.close()
-//        }
-//    }
+
 
 }
