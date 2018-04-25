@@ -207,7 +207,7 @@
 
 
                 <TextView
-                    android:id="@+id/round_might_total"
+                    android:id="@+id/round_might_remain"
                     android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
@@ -219,7 +219,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/round_speed_total"
+                    android:id="@+id/round_speed_remain"
                     android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="65dp"
@@ -231,7 +231,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/round_intellect_total"
+                    android:id="@+id/round_intellect_remain"
                     android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="70dp"
@@ -263,7 +263,7 @@
 
 
                 <TextView
-                    android:id="@+id/round_tier_remain"
+                    android:id="@+id/round_might_total"
                     android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
@@ -275,7 +275,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/round_effort_remain"
+                    android:id="@+id/round_speed_total"
                     android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="65dp"
@@ -287,7 +287,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/round_xp_remain"
+                    android:id="@+id/round_intellect_total"
                     android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="70dp"

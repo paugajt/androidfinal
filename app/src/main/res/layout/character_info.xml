@@ -235,7 +235,7 @@
 
 
         <TextView
-        android:id="@+id/view_might_total"
+        android:id="@+id/view_might_remain"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
@@ -247,7 +247,7 @@
         android:textStyle="bold" />
 
         <TextView
-        android:id="@+id/view_speed_total"
+        android:id="@+id/view_speed_remain"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
@@ -259,7 +259,7 @@
         android:textStyle="bold" />
 
         <TextView
-        android:id="@+id/view_intellect_total"
+        android:id="@+id/view_intellect_remain"
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
@@ -290,41 +290,41 @@
         android:orientation="horizontal">
 
 
-        <TextView
-        android:id="@+id/view_tier_remain"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/text_border"
-        android:text="0"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/view_might_total"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/text_border"
+                android:text="0"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
-        <TextView
-        android:id="@+id/view_effort_remain"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/text_border"
-        android:text="0"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/view_speed_total"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/text_border"
+                android:text="0"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
 
-        <TextView
-        android:id="@+id/view_xp_remain"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/text_border"
-        android:text="0"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/view_intellect_total"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/text_border"
+                android:text="0"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
         <TextView
         android:id="@+id/view_total"
         android:layout_width="44dp"

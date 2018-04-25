@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dip"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:id="@+id/heal_amount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/spinner_title"
+        android:spinnerMode="dialog"/>
+    <Spinner
+        android:id="@+id/heal-type"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/damage_spinner"
+        android:spinnerMode="dialog"/>
+</LinearLayout>
