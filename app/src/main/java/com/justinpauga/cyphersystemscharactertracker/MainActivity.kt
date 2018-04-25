@@ -14,24 +14,65 @@ import android.widget.Toast
 import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
 import android.R.attr.button
+import android.view.Gravity
 import kotlinx.android.synthetic.main.character_info.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
-    var info = Array(15, {""})
-    private val fileName = "Characters"
-    private val charList: ArrayList<Character> = ArrayList()
+    var info = Character::class.java.newInstance()
+    private var charList: ArrayList<Character> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        charList = getCharList()
     }
 
     override fun onResume() {
         super.onResume()
         populateCharacterView()
+    }
+
+
+    fun getCharList(): ArrayList<Character> {
+        val files = applicationContext.fileList()
+        //val charInfo: Array<String> = Array<String>(15, {""})
+        val charList: ArrayList<Character> = ArrayList()
+        var charInfo: List<String>
+        for(file in files) {
+            val thisFile = File(filesDir,file)
+            var sc = Scanner(thisFile)
+            if(sc.hasNext()) {
+                var line = sc.nextLine()
+                val char: Character = Character::class.java.newInstance()
+                charInfo = line.split(",")
+                if(charInfo.size == 15) {
+                    char.setName(charInfo[0])
+                    char.setDescriptor(charInfo[1])
+                    char.setType(charInfo[2])
+                    char.setFocus(charInfo[3])
+                    char.setTier(charInfo[4].trim().toInt())
+                    char.setEffort(charInfo[5].trim().toInt())
+                    char.setXp(charInfo[6].trim().toInt())
+                    char.setMight(charInfo[7].trim().toInt())
+                    char.setSpeed(charInfo[8].trim().toInt())
+                    char.setIntelligence(charInfo[9].trim().toInt())
+                    char.setAbilities(charInfo[10])
+                    char.setAttacks(charInfo[11])
+                    char.setCyphers(charInfo[12])
+                    char.setEquipment(charInfo[13])
+                    char.setNotes(charInfo[14])
+
+                    charList.add(char)
+            }
+            }
+        }
+        return charList
+
     }
 
     fun populateCharacterView() {
@@ -44,6 +85,8 @@ class MainActivity : AppCompatActivity() {
             emptyCharList.text = "No Characters Yet"
             emptyCharList.setBackgroundResource(R.drawable.text_border)
             emptyCharList.height = 200
+            emptyCharList.gravity = Gravity.CENTER
+
             emptyCharList.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -52,31 +95,28 @@ class MainActivity : AppCompatActivity() {
         } else {
             for (character in charList!!) {
                 val view = TextView(this)
-                view.text = "${character.getName()} is a ${character.getDescriptor()} ${character.getType()} who ${character.getFocus()}"
+                view.text = "${character.getName()} is a ${character.getDescriptor()} ${character.getType()} who ${character.getFocus()}" +
+                        "\n Might: ${character.getMight().toString()} Speed: ${character.getSpeed().toString()} Int: ${character.getIntelligence().toString()}"
                 //view.id = idCounter
                 view.setBackgroundResource(R.drawable.text_border)
                 view.height = 200
+                view.gravity = Gravity.CENTER
                 view.layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.FILL_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT)
                 (linearLayout as LinearLayout).addView(view)
                 view.setOnClickListener({
                     sendCharacter(character) })
-                //view.callOnClick(openCharacterInfo(character))
-
             }
         }
     }
 
     fun sendCharacter(character: Character) {
-        val intent = Intent(this, CharacterInfo::class.java)
+        val intent = Intent(this,CharacterInfo::class.java)
         intent.putExtra("character", character)
         startActivity(intent)
     }
-    fun openCharacterInfo(character: Character) {
-        val launchCharacterInfo = Intent(this, CharacterInfo::class.java)
-        startActivity(launchCharacterInfo)
-    }
+
     fun openNewCharacter(view: View) {
         val launchNewCharacter = Intent(this, NewCharacter::class.java)
         startActivityForResult(launchNewCharacter, 1)
@@ -112,44 +152,34 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            info = data!!.getStringArrayExtra("Character")
-            createCharacter(info)
+            info = data!!.getSerializableExtra("Character") as Character
+            saveCharacter(info)
         }
 
     }
 
-    fun createCharacter (info: Array<String>) {
-        val character = Character::class.java.newInstance()
-        character.setName(info[0])
-        character.setDescriptor(info[1])
-        character.setType(info[2])
-        character.setFocus(info[3])
-        character.setTier(info[4].toInt())
-        character.setEffort(info[5].toInt())
-        character.setXp(info[6].toInt())
-        character.setMight(info[7].toInt())
-        character.setSpeed(info[8].toInt())
-        character.setIntelligence(info[9].toInt())
-        character.setAbilities(info[10])
-        character.setAttacks(info[11])
-        character.setCyphers(info[12])
-        character.setEquipment(info[13])
-        character.setNotes(info[14])
-
-        saveCharacter(character)
-    }
-
     fun saveCharacter(character: Character) {
         charList.add(character)
+        saveToFile(character)
     }
-//    fun createFile() {
-//        val file = File(filesDir, "Colors")
-//        if (file.exists()) {
-//
-//        }
-//        else {
-//
-//        }
-//    }
+
+    fun saveToFile(character:Character) {
+
+            val file = File(filesDir, character.getName())
+            if (!file.exists()) {
+                val out = file.printWriter()
+                out.print("${character.getName()},${character.getDescriptor()},${character.getType()}," +
+                        "${character.getFocus()},${character.getTier()},${character.getEffort()}," +
+                        "${character.getXp()}, ${character.getMight()}, ${character.getSpeed()}," +
+                        "${character.getIntelligence()},${character.getAbilities()}," +
+                        "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
+                        "${character.getNotes()}")
+                out.close()
+            } else {
+                val toast = Toast.makeText(this, "Character ${character.getName()} already exists", Toast.LENGTH_LONG)
+                toast.show()
+            }
+    }
+
 
 }
