@@ -5,15 +5,16 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
     <Spinner
-        android:id="@+id/heal_amount"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/spinner_title"
-        android:spinnerMode="dialog"/>
-    <Spinner
         android:id="@+id/heal-type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:prompt="@string/damage_spinner"
         android:spinnerMode="dialog"/>
+    <Spinner
+        android:id="@+id/heal_amount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/spinner_title"
+        android:spinnerMode="dialog"/>
+
 </LinearLayout>

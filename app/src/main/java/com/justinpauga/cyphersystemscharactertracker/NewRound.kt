@@ -35,6 +35,7 @@ class NewRound : AppCompatActivity() {
 
             roundAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
             amountAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+
             damageTypeSpinner.adapter = roundAdapter
             amountSpinner.adapter = amountAdapter
 
@@ -63,16 +64,21 @@ class NewRound : AppCompatActivity() {
 
             val healTypeSpinner = healView.findViewById<Spinner>(R.id.heal_type)
             val healSpinner = healView.findViewById<Spinner>(R.id.heal_amount)
+
             val healTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,typeOfDamage)
             val healAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
+
             healAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
-            healSpinner.adapter = healAdapter
             healTypeSpinner.adapter = healTypeAdapter
+            healSpinner.adapter = healAdapter
 
             healDialog.setTitle("Heal Amount")
 
             healDialog.setPositiveButton("OK") { dialog, which ->
-                //Todo
+                val healType = healTypeSpinner.selectedItem.toString()
+                val healAmount = healSpinner.selectedItem.toString().toInt()
+
+                calcHeal(healType, healAmount)
             }
             healDialog.setNegativeButton("Cancel") { dialog, which ->
                 dialog.dismiss()
@@ -170,6 +176,30 @@ class NewRound : AppCompatActivity() {
         }
         else{
             intellect = (intellect.toString().toInt() - amount).toString()
+            intellectTextView.text = intellect
+        }
+    }
+    fun calcHeal(type :String, amount: Int){
+        var mightTextView = findViewById<TextView>(R.id.round_might_remain)
+        var speedTextView = findViewById<TextView>(R.id.round_speed_remain)
+        var intellectTextView = findViewById<TextView>(R.id.round_intellect_remain)
+        var might = round_might_remain.text
+        var speed = round_speed_remain.text
+        var intellect = round_intellect_remain.text
+
+        if (type.equals("Might",ignoreCase = true))
+        {
+            might = (might.toString().toInt() + amount).toString()
+            mightTextView.text = might
+
+        }
+        else if(type.equals("Speed", ignoreCase = true)){
+            speed = (speed.toString().toInt() + amount).toString()
+            speedTextView.text = speed
+
+        }
+        else{
+            intellect = (intellect.toString().toInt() + amount).toString()
             intellectTextView.text = intellect
         }
     }
