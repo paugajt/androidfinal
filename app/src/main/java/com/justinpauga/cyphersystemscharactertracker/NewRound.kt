@@ -8,9 +8,12 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import kotlinx.android.synthetic.main.new_round.*
+import org.w3c.dom.Text
 import java.util.*
 
 class NewRound : AppCompatActivity() {
@@ -74,12 +77,12 @@ class NewRound : AppCompatActivity() {
         val roll: Int = random.nextInt(21 -1) + 1
 
         val dialogBuilder = AlertDialog.Builder(this)
-        val inflater = this.layoutInflater
-        val dialogView = inflater.inflate(R.layout.roll_dialog, null)
+        val dialogView = layoutInflater.inflate(R.layout.roll_dialog, null) as View
+        val showRoll = dialogView.findViewById<TextView>(R.id.roll_view)
+        showRoll.text = roll.toString()
 
         dialogBuilder.setView(dialogView)
         dialogBuilder.setTitle("You Rolled a:")
-        dialogBuilder.setMessage(roll.toString())
         val b = dialogBuilder.create()
         b.show()
 
