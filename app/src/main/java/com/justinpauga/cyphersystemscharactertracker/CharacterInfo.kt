@@ -30,6 +30,24 @@ class CharacterInfo() : AppCompatActivity() {
         if (info != null){
             val char = info.getSerializable("character") as Character
             view_name.text = char.getName()
+            view_descriptor.text = char.getDescriptor()
+            view_type.text = char.getType()
+            view_focus.text = char.getFocus()
+            view_tier.text = char.getTier().toString()
+            view_effort.text = char.getEffort().toString()
+            view_xp.text = char.getXp().toString()
+            view_might_total.text = char.getMight().toString()
+            view_tier_remain.text = char.getMight().toString()
+            view_speed_total.text = char.getSpeed().toString()
+            view_effort_remain.text = char.getSpeed().toString()
+            view_intellect_total.text = char.getIntelligence().toString()
+            view_xp_remain.text = char.getIntelligence().toString()
+            view_abilities.text = char.getAbilities()
+            view_attacks.text = char.getAttacks()
+            view_cyphers.text = char.getCyphers()
+            view_equipment.text = char.getEquipment()
+            view_notes.setText(char.getNotes())
+
 
         }
     }
