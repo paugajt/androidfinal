@@ -129,7 +129,9 @@ class NewRound : AppCompatActivity() {
 
         val abilityB: Button = findViewById(R.id.ability_button)
         ability_button.setOnClickListener {
+
             val abilityDialog = AlertDialog.Builder(this)
+<<<<<<< HEAD
             val abilityView = layoutInflater.inflate(R.layout.ability_spinner, null) as View
 
             val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.ability_type_used)
@@ -152,9 +154,18 @@ class NewRound : AppCompatActivity() {
             }
             abilityDialog.setNegativeButton("Cancel") { dialog, which ->
                 dialog.dismiss()
+=======
 
-            }
-            abilityDialog.show()
+            val abilityView = layoutInflater.inflate(R.layout.damage_spinner, null) as View
+>>>>>>> c95c57a6406b0689106181b2a63ffe3381b44111
+
+            val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.damage_taken)
+            var amountSpinner = abilityView.findViewById<Spinner>(R.id.amount_taken)
+
+            val roundAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, typeOfDamage)
+            val amountAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountOfDamage)
+
+            roundAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         }
     }
 

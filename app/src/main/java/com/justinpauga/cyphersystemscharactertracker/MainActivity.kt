@@ -2,23 +2,20 @@ package com.justinpauga.cyphersystemscharactertracker
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.view.ViewGroup.LayoutParams.FILL_PARENT
 import android.widget.TextView
 import android.widget.Toast
-import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
-import android.R.attr.button
-import android.graphics.Color
+import android.app.AlertDialog
 import android.view.Gravity
-import kotlinx.android.synthetic.main.character_info.*
 import java.util.*
 import kotlin.collections.ArrayList
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -108,8 +105,32 @@ class MainActivity : AppCompatActivity() {
                 (linearLayout as LinearLayout).addView(view)
                 view.setOnClickListener({
                     sendCharacter(character) })
+
+                view.setOnLongClickListener {
+                    deleteChar(character)
+                    true
+                }
             }
         }
+    }
+
+    fun deleteChar(character: Character) {
+        val deleteDialog = AlertDialog.Builder(this)
+        val name = character.getName()
+        deleteDialog.setTitle("Delete Character?")
+        deleteDialog.setMessage("Are you sure you want to delete ${character.getName()}? \n This cannot be undone!")
+        deleteDialog.setPositiveButton("Delete") { dialog, which ->
+            val file = File(filesDir, character.getName())
+            file.delete()
+            val intent = intent
+            finish()
+            startActivity(intent)
+        }
+        deleteDialog.setNegativeButton("Cancel") { dialog, which ->
+            dialog.dismiss()
+        }
+        deleteDialog.create()
+        deleteDialog.show()
     }
 
     fun sendCharacter(character: Character) {
@@ -123,32 +144,6 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(launchNewCharacter, 1)
     }
 
-    fun addChartoList(character: Character) {
-        if (charNameExists(character.getName())) {
-            val toast = Toast.makeText(this, "A character with this name already exists", Toast.LENGTH_SHORT)
-            toast.show()
-        } else {
-            charList.add(character)
-        }
-    }
-
-    fun charNameExists(name: String): Boolean {
-        for (character in charList) {
-            if (character.getName().equals(name)) {
-                return true
-            }
-        }
-        return false
-    }
-
-    fun removeCharFromList(character: Character) {
-        val name = character.getName()
-        if (charNameExists(character.getName())) {
-            charList.remove(character)
-            val toast = Toast.makeText(this, "${name} has been deleted", Toast.LENGTH_SHORT)
-            toast.show()
-        }
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -176,9 +171,6 @@ class MainActivity : AppCompatActivity() {
                         "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
                         "${character.getNotes()}")
                 out.close()
-            } else {
-                val toast = Toast.makeText(this, "Character ${character.getName()} already exists", Toast.LENGTH_LONG)
-                toast.show()
             }
     }
 
