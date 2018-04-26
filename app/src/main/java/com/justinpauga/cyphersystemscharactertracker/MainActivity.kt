@@ -14,6 +14,7 @@ import android.widget.Toast
 import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
 import android.R.attr.button
+import android.graphics.Color
 import android.view.Gravity
 import kotlinx.android.synthetic.main.character_info.*
 import java.util.*
@@ -98,9 +99,9 @@ class MainActivity : AppCompatActivity() {
                 view.text = "${character.getName()} is a ${character.getDescriptor()} ${character.getType()} who ${character.getFocus()}" +
                         "\n Might: ${character.getMight().toString()} Speed: ${character.getSpeed().toString()} Int: ${character.getIntelligence().toString()}"
                 //view.id = idCounter
-                view.setBackgroundResource(R.drawable.text_border)
                 view.height = 200
                 view.gravity = Gravity.CENTER
+                view.setBackgroundResource(R.drawable.text_border)
                 view.layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.FILL_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT)

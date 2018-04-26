@@ -7,7 +7,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:textDirection="anyRtl">
+    android:textDirection="anyRtl"
+    android:background="@drawable/round2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,6 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="Name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -41,6 +43,7 @@
                     android:layout_width="223dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:inputType="text"
                     android:textAlignment="center" />
@@ -57,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textAlignment="center"
+                    android:textColor="@color/white"
                     android:text="Is a"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -66,6 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
                     android:ems="7"
                     android:inputType="text" />
 
@@ -74,16 +79,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
                     android:ems="7"
                     android:inputType="text" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/round_focus"
-                android:layout_width="279dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="15"
-                android:inputType="text" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/round_focus_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:text="Who"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/round_focus"
+                    android:layout_width="279dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:ems="15"
+                    android:inputType="text" />
+            </LinearLayout>
+
 
 
             <LinearLayout
@@ -97,6 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="Tier"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -107,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="Effort"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -117,6 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="XP"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -175,6 +203,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="Might"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -185,6 +214,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="Speed"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -195,6 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:text="Intellect"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
@@ -316,6 +347,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:text="Abilities"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold" />
@@ -335,6 +367,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:text="Attacks"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold" />
@@ -354,6 +387,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:text="Cyphers"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold" />
@@ -373,6 +407,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:text="Equipment"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold" />
@@ -392,6 +427,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:text="Notes:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold" />
