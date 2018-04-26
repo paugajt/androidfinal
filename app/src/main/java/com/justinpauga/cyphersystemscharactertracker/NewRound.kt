@@ -240,7 +240,7 @@ class NewRound : AppCompatActivity() {
 
         val dialogBuilder = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.roll_dialog, null) as View
-        val showRoll = dialogView.findViewById<TextView>(R.id.roll_view)
+        val showRoll = dialogView.findViewById<TextView>(R.id.rollText)
         showRoll.text = roll.toString()
 
         dialogBuilder.setView(dialogView)

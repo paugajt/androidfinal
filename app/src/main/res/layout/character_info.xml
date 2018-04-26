@@ -31,6 +31,7 @@
         android:id="@+id/view_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+            android:textColor="@color/white"
         android:layout_marginTop="8dp"
         android:text="Name"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -41,6 +42,7 @@
                 android:layout_width="223dp"
                 android:layout_height="33dp"
                 android:layout_marginStart="10dp"
+                android:textColor="@color/white"
                 android:ems="10"
                 android:textStyle="bold"
                 android:inputType="text"
@@ -59,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:text="Is a"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -71,6 +74,7 @@
                 android:layout_marginStart="10dp"
                 android:ems="7"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -82,6 +86,7 @@
                 android:layout_height="33dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textAlignment="center"
                 android:ems="7"
@@ -97,6 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:text="Who"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -108,6 +114,7 @@
                     android:layout_height="33dp"
                     android:layout_marginStart="8dp"
                     android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:ems="15"
                     android:layout_marginTop="8dp"
                     android:textAlignment="center"
@@ -126,6 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Tier"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -136,6 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Effort"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -146,6 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="XP"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -204,6 +214,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Might"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -214,6 +225,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Speed"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -224,6 +236,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Intellect"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -345,6 +358,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Abilities"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -364,6 +378,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Attacks"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -383,6 +398,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Cyphers"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -402,6 +418,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+            android:textColor="@color/white"
         android:text="Equipment"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold" />
@@ -421,6 +438,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:text="Notes:"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold" />
