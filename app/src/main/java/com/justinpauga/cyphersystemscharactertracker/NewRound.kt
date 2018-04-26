@@ -141,6 +141,7 @@ class NewRound : AppCompatActivity() {
             val amountAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountOfDamage)
 
             roundAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+
         }
     }
 
