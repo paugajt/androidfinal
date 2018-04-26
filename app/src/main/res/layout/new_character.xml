@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/newChar">
+    android:background="@drawable/newchar">
 
     <ScrollView
         android:id="@+id/create_character_scrollview"

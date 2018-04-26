@@ -8,7 +8,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:textDirection="anyRtl"
-    android:background="@drawable/charInfo">
+    android:background="@drawable/charinfo">
 
     <ScrollView
         android:layout_width="match_parent"
