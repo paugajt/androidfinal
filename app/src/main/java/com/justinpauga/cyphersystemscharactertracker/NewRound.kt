@@ -236,19 +236,20 @@ class NewRound : AppCompatActivity() {
     }
 
     fun handleShakeEvent(count: Int) {
-        val random = Random()
-        val roll: Int = random.nextInt(21 -1) + 1
+        if(count < 2) {
+            val random = Random()
+            val roll: Int = random.nextInt(21 - 1) + 1
 
-        val dialogBuilder = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.roll_dialog, null) as View
-        val showRoll = dialogView.findViewById<TextView>(R.id.rollText)
-        showRoll.text = roll.toString()
+            val dialogBuilder = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.roll_dialog, null) as View
+            val showRoll = dialogView.findViewById<TextView>(R.id.rollText)
+            showRoll.text = roll.toString()
 
-        dialogBuilder.setView(dialogView)
-        dialogBuilder.setTitle("You Rolled a:")
-        val b = dialogBuilder.create()
-        b.show()
-
+            dialogBuilder.setView(dialogView)
+            dialogBuilder.setTitle("You Rolled a:")
+            val b = dialogBuilder.create()
+            b.show()
+        }
 
     }
 
