@@ -14,11 +14,15 @@ import android.widget.Toast
 import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
 import android.R.attr.button
+import android.app.AlertDialog
 import android.graphics.Color
 import android.view.Gravity
 import kotlinx.android.synthetic.main.character_info.*
 import java.util.*
 import kotlin.collections.ArrayList
+import android.view.View.OnLongClickListener
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -108,8 +112,31 @@ class MainActivity : AppCompatActivity() {
                 (linearLayout as LinearLayout).addView(view)
                 view.setOnClickListener({
                     sendCharacter(character) })
+
+                view.setOnLongClickListener {
+                    deleteChar(character)
+                    true
+                }
             }
         }
+    }
+
+    fun deleteChar(character: Character) {
+        val deleteDialog = AlertDialog.Builder(this)
+        val name = character.getName()
+        deleteDialog.setTitle("Delete Character?")
+        deleteDialog.setMessage("Are you sure you want to delete ${character.getName()}? \n This cannot be undone!")
+        deleteDialog.setPositiveButton("Delete") { dialog, which ->
+            val file = File(filesDir, character.getName())
+            file.delete()
+            populateCharacterView()
+            val toast = Toast.makeText(this, "${name} deleted", Toast.LENGTH_LONG)
+        }
+        deleteDialog.setNegativeButton("Cancel") { dialog, which ->
+            dialog.dismiss()
+        }
+        deleteDialog.create()
+        deleteDialog.show()
     }
 
     fun sendCharacter(character: Character) {
@@ -141,14 +168,6 @@ class MainActivity : AppCompatActivity() {
         return false
     }
 
-    fun removeCharFromList(character: Character) {
-        val name = character.getName()
-        if (charNameExists(character.getName())) {
-            charList.remove(character)
-            val toast = Toast.makeText(this, "${name} has been deleted", Toast.LENGTH_SHORT)
-            toast.show()
-        }
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
