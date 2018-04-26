@@ -130,10 +130,25 @@ class NewRound : AppCompatActivity() {
         val abilityB: Button = findViewById(R.id.ability_button)
         ability_button.setOnClickListener {
             val abilityDialog = AlertDialog.Builder(this)
-            abilityDialog.setTitle("Use Ability")
+            val abilityView = layoutInflater.inflate(R.layout.ability_spinner, null) as View
+
+            val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.ability_type_used)
+            val abilitySpinner = abilityView.findViewById<Spinner>(R.id.amount_ability_used)
+
+            val abilityTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,typeOfDamage)
+            val abilityAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
+
+            abilityAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            abilityTypeSpinner.adapter = abilityTypeAdapter
+            abilitySpinner.adapter = abilityAdapter
+
+            abilityDialog.setTitle("Ability Used")
 
             abilityDialog.setPositiveButton("OK") { dialog, which ->
-                //Todo same as damage spinner
+                val abilityType = abilityTypeSpinner.selectedItem.toString()
+                val abilityAmount = abilitySpinner.selectedItem.toString().toInt()
+
+                calcHeal(abilityType, abilityAmount)
             }
             abilityDialog.setNegativeButton("Cancel") { dialog, which ->
                 dialog.dismiss()
@@ -198,6 +213,31 @@ class NewRound : AppCompatActivity() {
         }
     }
     fun calcHeal(type :String, amount: Int){
+        var mightTextView = findViewById<TextView>(R.id.round_might_remain)
+        var speedTextView = findViewById<TextView>(R.id.round_speed_remain)
+        var intellectTextView = findViewById<TextView>(R.id.round_intellect_remain)
+        var might = round_might_remain.text
+        var speed = round_speed_remain.text
+        var intellect = round_intellect_remain.text
+
+        if (type.equals("Might",ignoreCase = true))
+        {
+            might = (might.toString().toInt() + amount).toString()
+            mightTextView.text = might
+
+        }
+        else if(type.equals("Speed", ignoreCase = true)){
+            speed = (speed.toString().toInt() + amount).toString()
+            speedTextView.text = speed
+
+        }
+        else{
+            intellect = (intellect.toString().toInt() + amount).toString()
+            intellectTextView.text = intellect
+        }
+    }
+
+    fun calcAbility(type :String, amount: Int){
         var mightTextView = findViewById<TextView>(R.id.round_might_remain)
         var speedTextView = findViewById<TextView>(R.id.round_speed_remain)
         var intellectTextView = findViewById<TextView>(R.id.round_intellect_remain)
