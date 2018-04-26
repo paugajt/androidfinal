@@ -2,25 +2,18 @@ package com.justinpauga.cyphersystemscharactertracker
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.view.ViewGroup.LayoutParams.FILL_PARENT
 import android.widget.TextView
 import android.widget.Toast
-import com.justinpauga.cyphersystemscharactertracker.R.drawable.text_border
 import java.io.File
-import android.R.attr.button
 import android.app.AlertDialog
-import android.graphics.Color
 import android.view.Gravity
-import kotlinx.android.synthetic.main.character_info.*
 import java.util.*
 import kotlin.collections.ArrayList
-import android.view.View.OnLongClickListener
 
 
 
@@ -129,8 +122,9 @@ class MainActivity : AppCompatActivity() {
         deleteDialog.setPositiveButton("Delete") { dialog, which ->
             val file = File(filesDir, character.getName())
             file.delete()
-            populateCharacterView()
-            val toast = Toast.makeText(this, "${name} deleted", Toast.LENGTH_LONG)
+            val intent = intent
+            finish()
+            startActivity(intent)
         }
         deleteDialog.setNegativeButton("Cancel") { dialog, which ->
             dialog.dismiss()
@@ -148,24 +142,6 @@ class MainActivity : AppCompatActivity() {
     fun openNewCharacter(view: View) {
         val launchNewCharacter = Intent(this, NewCharacter::class.java)
         startActivityForResult(launchNewCharacter, 1)
-    }
-
-    fun addChartoList(character: Character) {
-        if (charNameExists(character.getName())) {
-            val toast = Toast.makeText(this, "A character with this name already exists", Toast.LENGTH_SHORT)
-            toast.show()
-        } else {
-            charList.add(character)
-        }
-    }
-
-    fun charNameExists(name: String): Boolean {
-        for (character in charList) {
-            if (character.getName().equals(name)) {
-                return true
-            }
-        }
-        return false
     }
 
 
@@ -195,9 +171,6 @@ class MainActivity : AppCompatActivity() {
                         "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
                         "${character.getNotes()}")
                 out.close()
-            } else {
-                val toast = Toast.makeText(this, "Character ${character.getName()} already exists", Toast.LENGTH_LONG)
-                toast.show()
             }
     }
 
