@@ -24,7 +24,8 @@ class CharacterInfo() : AppCompatActivity() {
         startActivity(newRoundButton)
     }
     fun editCharacterInfo(view: View){
-        val editButton = Intent(this, NewCharacter::class.java)
+        val editButton = Intent(this, EditCharacterInfo::class.java)
+        editButton.putExtra("character", char)
         startActivity(editButton)
     }
     fun handleIntent(){
@@ -49,22 +50,7 @@ class CharacterInfo() : AppCompatActivity() {
             view_cyphers.text = char.getCyphers()
             view_equipment.text = char.getEquipment()
             view_notes.setText(char.getNotes())
-            view_abilities.text = char.getAbilities()
-            view_attacks.text = char.getAttacks()
-            view_cyphers.text = char.getCyphers()
-            view_effort.text = char.getEffort().toString()
-            view_equipment.text = char.getEquipment()
-            view_focus.text = char.getFocus()
-            view_notes.text = char.getNotes()
-            view_might_remain.text = char.getMight().toString()
-            view_speed_remain.text = char.getSpeed().toString()
-            view_intellect_remain.text = char.getIntelligence().toString()
-            view_might_total.text = char.getMight().toString()
-            view_speed_total.text = char.getSpeed().toString()
-            view_intellect_total.text = char.getIntelligence().toString()
-            view_type.text = char.getType()
-            view_tier.text = char.getTier().toString()
-            view_xp.text = char.getXp().toString()
+
 
         }
     }

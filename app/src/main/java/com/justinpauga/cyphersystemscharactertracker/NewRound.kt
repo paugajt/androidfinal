@@ -132,15 +132,33 @@ class NewRound : AppCompatActivity() {
 
             val abilityDialog = AlertDialog.Builder(this)
 
-            val abilityView = layoutInflater.inflate(R.layout.damage_spinner, null) as View
+            val abilityView = layoutInflater.inflate(R.layout.ability_spinner, null) as View
 
-            val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.damage_taken)
-            var amountSpinner = abilityView.findViewById<Spinner>(R.id.amount_taken)
+            val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.ability_type)
+            val abilitySpinner = abilityView.findViewById<Spinner>(R.id.ability_amount)
 
-            val roundAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, typeOfDamage)
-            val amountAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountOfDamage)
+            val abilityTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,typeOfDamage)
+            val abilityAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
 
-            roundAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            abilityAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            abilityTypeSpinner.adapter = abilityTypeAdapter
+            abilitySpinner.adapter = abilityAdapter
+
+            abilityDialog.setTitle("Heal Amount")
+
+            abilityDialog.setPositiveButton("OK") { dialog, which ->
+                val abilityType = abilityTypeSpinner.selectedItem.toString()
+                val abilityAmount = abilitySpinner.selectedItem.toString().toInt()
+
+                calcAbility(abilityType, abilityAmount)
+            }
+            abilityDialog.setNegativeButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+
+            }
+            abilityDialog.setView(abilityView)
+            abilityDialog.create()
+            abilityDialog.show()
 
         }
     }
@@ -220,6 +238,30 @@ class NewRound : AppCompatActivity() {
         }
         else{
             intellect = (intellect.toString().toInt() + amount).toString()
+            intellectTextView.text = intellect
+        }
+    }
+    fun calcAbility(type :String, amount: Int){
+        var mightTextView = findViewById<TextView>(R.id.round_might_remain)
+        var speedTextView = findViewById<TextView>(R.id.round_speed_remain)
+        var intellectTextView = findViewById<TextView>(R.id.round_intellect_remain)
+        var might = round_might_remain.text
+        var speed = round_speed_remain.text
+        var intellect = round_intellect_remain.text
+
+        if (type.equals("Might",ignoreCase = true))
+        {
+            might = (might.toString().toInt() - amount).toString()
+            mightTextView.text = might
+
+        }
+        else if(type.equals("Speed", ignoreCase = true)){
+            speed = (speed.toString().toInt() - amount).toString()
+            speedTextView.text = speed
+
+        }
+        else{
+            intellect = (intellect.toString().toInt() - amount).toString()
             intellectTextView.text = intellect
         }
     }
