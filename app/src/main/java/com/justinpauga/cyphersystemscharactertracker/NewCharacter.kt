@@ -97,7 +97,7 @@ class NewCharacter() : AppCompatActivity() {
             else {
                 character.setSpeed(create_speed.text.toString().toInt())
             }
-            if(create_intellect.toString().toInt() < 1) {
+            if(create_intellect.text.toString().toInt() < 1) {
                 val toast = Toast.makeText(this, "Please enter a valid intellect value", Toast.LENGTH_LONG)
                 toast.show()
                 return
