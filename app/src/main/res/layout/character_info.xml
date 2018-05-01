@@ -45,9 +45,9 @@
                 android:textColor="@color/white"
                 android:ems="10"
                 android:textStyle="bold"
-                android:inputType="text"
-                android:layout_marginTop="8dp"
                 android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
                 android:textAlignment="center" />
         </LinearLayout>
 
