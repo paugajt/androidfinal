@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.new_character.*
 
 class NewCharacter() : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_character)
@@ -118,7 +117,6 @@ class NewCharacter() : AppCompatActivity() {
     fun sendCharacter(view: View, character: Character) {
         var intent = Intent()
         intent.putExtra("Character", character)
-        setResult(Activity.RESULT_OK, intent)
         finish()
     }
 }
