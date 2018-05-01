@@ -54,8 +54,7 @@ class CharacterInfo() : AppCompatActivity() {
             view_attacks.text = char.getAttacks()
             view_cyphers.text = char.getCyphers()
             view_equipment.text = char.getEquipment()
-            view_notes.text = char.getNotes()
-
+            view_notes.setText(char.getNotes())
         }
     }
 

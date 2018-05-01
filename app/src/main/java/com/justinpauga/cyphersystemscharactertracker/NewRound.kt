@@ -35,7 +35,7 @@ class NewRound : AppCompatActivity() {
         mAccelerometer = mSensorManager!!
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         mShakeDetector = ShakeDetector()
-        mShakeDetector!!.setOnShakeListener(object: ShakeDetector.OnShakeListener {
+        mShakeDetector!!.setOnShakeListener(object : ShakeDetector.OnShakeListener {
 
             override fun onShake(count: Int) {
                 handleShakeEvent(count)
@@ -88,7 +88,7 @@ class NewRound : AppCompatActivity() {
             val healTypeSpinner = healView.findViewById<Spinner>(R.id.heal_type)
             val healSpinner = healView.findViewById<Spinner>(R.id.heal_amount)
 
-            val healTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,typeOfDamage)
+            val healTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, typeOfDamage)
             val healAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
 
             healAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
@@ -131,35 +131,58 @@ class NewRound : AppCompatActivity() {
         ability_button.setOnClickListener {
 
             val abilityDialog = AlertDialog.Builder(this)
-
             val abilityView = layoutInflater.inflate(R.layout.ability_spinner, null) as View
 
             val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.ability_type)
             val abilitySpinner = abilityView.findViewById<Spinner>(R.id.ability_amount)
 
-            val abilityTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,typeOfDamage)
+            val abilityTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, typeOfDamage)
             val abilityAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
 
             abilityAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
             abilityTypeSpinner.adapter = abilityTypeAdapter
             abilitySpinner.adapter = abilityAdapter
 
-            abilityDialog.setTitle("Heal Amount")
+            abilityDialog.setTitle("Ability Used")
 
             abilityDialog.setPositiveButton("OK") { dialog, which ->
                 val abilityType = abilityTypeSpinner.selectedItem.toString()
                 val abilityAmount = abilitySpinner.selectedItem.toString().toInt()
 
-                calcAbility(abilityType, abilityAmount)
+                calcHeal(abilityType, abilityAmount)
             }
             abilityDialog.setNegativeButton("Cancel") { dialog, which ->
                 dialog.dismiss()
 
-            }
-            abilityDialog.setView(abilityView)
-            abilityDialog.create()
-            abilityDialog.show()
+                val abilityView = layoutInflater.inflate(R.layout.ability_spinner, null) as View
 
+                val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.ability_type)
+                val abilitySpinner = abilityView.findViewById<Spinner>(R.id.ability_amount)
+
+                val abilityTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, typeOfDamage)
+                val abilityAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
+
+                abilityAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+                abilityTypeSpinner.adapter = abilityTypeAdapter
+                abilitySpinner.adapter = abilityAdapter
+
+                abilityDialog.setTitle("Heal Amount")
+
+                abilityDialog.setPositiveButton("OK") { dialog, which ->
+                    val abilityType = abilityTypeSpinner.selectedItem.toString()
+                    val abilityAmount = abilitySpinner.selectedItem.toString().toInt()
+
+                    calcAbility(abilityType, abilityAmount)
+                }
+                abilityDialog.setNegativeButton("Cancel") { dialog, which ->
+                    dialog.dismiss()
+
+                }
+                abilityDialog.setView(abilityView)
+                abilityDialog.create()
+                abilityDialog.show()
+
+            }
         }
     }
 
@@ -279,19 +302,20 @@ class NewRound : AppCompatActivity() {
     }
 
     fun handleShakeEvent(count: Int) {
-        val random = Random()
-        val roll: Int = random.nextInt(21 -1) + 1
+        if(count < 2) {
+            val random = Random()
+            val roll: Int = random.nextInt(21 - 1) + 1
 
-        val dialogBuilder = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.roll_dialog, null) as View
-        val showRoll = dialogView.findViewById<TextView>(R.id.rollText)
-        showRoll.text = roll.toString()
+            val dialogBuilder = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.roll_dialog, null) as View
+            val showRoll = dialogView.findViewById<TextView>(R.id.rollText)
+            showRoll.text = roll.toString()
 
-        dialogBuilder.setView(dialogView)
-        dialogBuilder.setTitle("You Rolled a:")
-        val b = dialogBuilder.create()
-        b.show()
-
+            dialogBuilder.setView(dialogView)
+            dialogBuilder.setTitle("You Rolled a:")
+            val b = dialogBuilder.create()
+            b.show()
+        }
 
     }
 
