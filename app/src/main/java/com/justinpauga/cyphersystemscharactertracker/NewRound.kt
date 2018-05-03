@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 
 import android.widget.*
+import com.justinpauga.cyphersystemscharactertracker.R.id.*
 import kotlinx.android.synthetic.main.new_round.*
 import java.util.*
 
@@ -151,29 +152,6 @@ class NewRound : AppCompatActivity() {
 
                 calcHeal(abilityType, abilityAmount)
             }
-            abilityDialog.setNegativeButton("Cancel") { dialog, which ->
-                dialog.dismiss()
-
-                val abilityView = layoutInflater.inflate(R.layout.ability_spinner, null) as View
-
-                val abilityTypeSpinner = abilityView.findViewById<Spinner>(R.id.ability_type)
-                val abilitySpinner = abilityView.findViewById<Spinner>(R.id.ability_amount)
-
-                val abilityTypeAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, typeOfDamage)
-                val abilityAdapter = ArrayAdapter<Int>(this, R.layout.support_simple_spinner_dropdown_item, amountToHeal)
-
-                abilityAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
-                abilityTypeSpinner.adapter = abilityTypeAdapter
-                abilitySpinner.adapter = abilityAdapter
-
-                abilityDialog.setTitle("Heal Amount")
-
-                abilityDialog.setPositiveButton("OK") { dialog, which ->
-                    val abilityType = abilityTypeSpinner.selectedItem.toString()
-                    val abilityAmount = abilitySpinner.selectedItem.toString().toInt()
-
-                    calcAbility(abilityType, abilityAmount)
-                }
                 abilityDialog.setNegativeButton("Cancel") { dialog, which ->
                     dialog.dismiss()
 
@@ -181,8 +159,6 @@ class NewRound : AppCompatActivity() {
                 abilityDialog.setView(abilityView)
                 abilityDialog.create()
                 abilityDialog.show()
-
-            }
         }
     }
 

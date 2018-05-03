@@ -86,7 +86,7 @@ class EditCharacterInfo() : AppCompatActivity() {
     }
     fun sendCharacter(view: View, character: Character) {
         var intent = Intent()
-        intent.putExtra("EditChar", character)
+        intent.putExtra("character", character)
         finish()
     }
 

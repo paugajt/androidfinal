@@ -29,7 +29,7 @@ class CharacterInfo() : AppCompatActivity() {
 
     fun editCharacterInfo(view: View) {
         val editButton = Intent(this, EditCharacterInfo::class.java)
-        editButton.putExtra("editChar", char)
+        editButton.putExtra("character", char)
         startActivityForResult(editButton, 1)
     }
 
