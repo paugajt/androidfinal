@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
     fun saveToFile(character:Character) {
 
             val file = File(filesDir, character.getName())
-            if (!file.exists()) {
+            //if (!file.exists()) {
                 val out = file.printWriter()
                 out.print("${character.getName()},${character.getDescriptor()},${character.getType()}," +
                         "${character.getFocus()},${character.getTier()},${character.getEffort()}," +
@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity() {
                         "${character.getAttacks()},${character.getCyphers()},${character.getEquipment()}," +
                         "${character.getNotes()}")
                 out.close()
-            }
+            //}
     }
 
 
