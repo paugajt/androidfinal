@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
     fun sendCharacter(character: Character) {
         val intent = Intent(this,CharacterInfo::class.java)
         intent.putExtra("character", character)
-        startActivityForResult(intent,2)
+        startActivity(intent)
     }
 
     fun openNewCharacter(view: View) {

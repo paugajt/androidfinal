@@ -117,6 +117,7 @@ class NewCharacter() : AppCompatActivity() {
     fun sendCharacter(view: View, character: Character) {
         var intent = Intent()
         intent.putExtra("Character", character)
+        setResult(Activity.RESULT_OK, intent)
         finish()
     }
 }
